@@ -12,7 +12,7 @@ class WeatherForm extends Component {
 	      location: '',	      
 	    }
 
-	    this.handleChange = this.handleChange.bind(this),
+	    this.handleChange = this.handleChange.bind(this)
 	    this.getLatitudeLongitude = this.getLatitudeLongitude.bind(this)
 	}
 
@@ -37,7 +37,7 @@ class WeatherForm extends Component {
 							value={this.state.location} onChange={this.handleChange}/>					
 					</Col>
 					<Col >
-						<Button ClassName='button' type="submit">Lookup</Button>
+						<Button className='button' type="submit">Lookup</Button>
 					</Col>
 				</Form.Group>
 			</Form>
