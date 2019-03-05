@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+//import { getLatitudeLongitude } from '../actions'
 
 class WeatherForm extends Component {
 	constructor(props) {
@@ -23,7 +24,10 @@ class WeatherForm extends Component {
 
 	getLatitudeLongitude(e) {
 		e.preventDefault()
+		const { getGeocode } = this.props
 		console.log('form submitted')
+		getGeocode(this.state.location)
+		
 	}
 
 	render() {

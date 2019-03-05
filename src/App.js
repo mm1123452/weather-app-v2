@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DayForecastList from './components/DayForecastList'
-import WeatherForm from './components/WeatherForm'
+import WeatherFormContainer from './containers/WeatherFormContainer'
 import CurrentWeatherContainer from './containers/CurrentWeatherContainer'
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
 
     return (
     	<div className="App">      
-    		<WeatherForm/>
+    		<WeatherFormContainer/>
         <CurrentWeatherContainer/>
         <br/>
         <DayForecastList forecast={fourDayArray}/>

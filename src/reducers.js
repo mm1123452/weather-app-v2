@@ -1,4 +1,5 @@
-
+import { LATITUDE_LONGITUDE_FETCH, LATITUDE_LONGITUDE_FETCH_SUCCESS,
+ LATITUDE_LONGITUDE_FETCH_FAILURE} from './constants'
 /*
 state: {
 	items: {
@@ -120,11 +121,40 @@ const mockForecast = {
 			}		
 		},
 		isFetching: false,
-		error: null
+		fetchError: null
 	}
 }
 
 
-export default function forecastReducer(state = {forecast: mockForecast}, action) {     
-  return state
+export default (state = {forecast: mockForecast}, action) => {  
+
+  switch (action.type) {
+  	case LATITUDE_LONGITUDE_FETCH: {
+  		return {
+  			...state,
+  			isFetching: true,
+  			fetchError: null
+  		}
+  	}
+ 	case LATITUDE_LONGITUDE_FETCH_SUCCESS: {
+  		return {
+  			//...state,
+  			//isFetching: true,
+  			//fetchError: null
+  		}
+  	}
+  	case LATITUDE_LONGITUDE_FETCH_FAILURE: {
+  		return {
+  			//...state,
+  			//isFetching: true,
+  			//fetchError: null
+  		}
+  	}
+   
+ 	default:
+  		return state
+	}
 }
+
+
+

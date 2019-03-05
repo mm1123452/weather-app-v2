@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 import App from './App'
-import WeatherForm from './components/WeatherForm'
+import WeatherFormContainer from './containers/WeatherFormContainer'
 import DayForecastList from './components/DayForecastList'
 import CurrentWeatherContainer from './containers/CurrentWeatherContainer'
 
@@ -54,7 +54,7 @@ describe('App Component', () => {
         let newProps = {...props}
 		const wrapper = shallow(<App {...newProps}/>)
 
-		expect(wrapper.find(WeatherForm).length).toBe(1)
+		expect(wrapper.find(WeatherFormContainer).length).toBe(1)
 	})
 
 	it ('renders DayForecastList', () => {

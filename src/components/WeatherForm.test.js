@@ -37,6 +37,7 @@ describe('WeatherForm Component', () => {
 			isFetching: false,
 			error: null
 		}
+
 	})
 
 	it ('renders a Form element', () => {
@@ -61,7 +62,9 @@ describe('WeatherForm Component', () => {
 	})
 
 	it ('calls getLatitudeLongitude method onSubmit', () => {
-		const wrapper = shallow(<WeatherForm />)
+		const newProps = {...props, getGeocode: () => {}}
+
+		const wrapper = shallow(<WeatherForm {...newProps} />)
 		
 		const spy= jest.spyOn(wrapper.instance(), 'getLatitudeLongitude')
 		
