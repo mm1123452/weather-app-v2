@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import DayForecastList from './components/DayForecastList'
+import WeatherForm from './components/WeatherForm'
 
 class App extends Component {
 
   render() {
    const { fourDayForecast } = this.props
 
-   let fourDayArray = Object.values(fourDayForecast)
+   let fourDayArray = Object.keys(fourDayForecast).map((e) => {
+      return fourDayForecast[e]
+  })
 
     return (
-      <div className="App">
-          <DayForecastList forecast={fourDayArray}/>
+    	<div className="App">
+    		<WeatherForm/>
+        <DayForecastList forecast={fourDayArray}/>
       </div>
     )
   }
