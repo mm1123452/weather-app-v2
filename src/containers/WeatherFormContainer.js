@@ -1,16 +1,13 @@
 import { connect } from 'react-redux'
 import WeatherForm from '../components/WeatherForm'
-import {getLatitudeLongitude} from '../actions'
+import {fetchGeocode} from '../actions'
 
 export const getGeocode = (dispatch, location) => {
-	console.log('dispatching ' + location)
-	dispatch(getLatitudeLongitude(location))
+	dispatch(fetchGeocode(location))
 }
-
 
 const mapStateToProps = state => {
 	return {
-
 	}
 }
 

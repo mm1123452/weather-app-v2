@@ -3,8 +3,10 @@ import CurrentWeather from '../components/CurrentWeather'
 
 const mapStateToProps = (state) => {                  
   return {
-    currentForecast: state.forecast.items.currentForecast
-
+    location: state.items.location,
+    temp: state.items.currentForecast.temp,
+    forecast: state.items.currentForecast.forecast,
+    icon: state.items.currentForecast.icon
   }
 }
 

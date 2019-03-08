@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-//import { getLatitudeLongitude } from '../actions'
+import './WeatherForm.css'
 
 class WeatherForm extends Component {
 	constructor(props) {
@@ -17,34 +13,42 @@ class WeatherForm extends Component {
 	    this.getLatitudeLongitude = this.getLatitudeLongitude.bind(this)
 	}
 
+	componentDidMount() {
+	    const { getGeocode } = this.props
+		getGeocode('10026')
+	}
+
 	handleChange(e) {
-		//console.log(e.target.value)
 		this.setState({location: e.target.value })
 	}
 
 	getLatitudeLongitude(e) {
 		e.preventDefault()
 		const { getGeocode } = this.props
-		console.log('form submitted')
 		getGeocode(this.state.location)
-		
+		this.setState({location: ''})		
 	}
 
 	render() {
 		return (
-			<Form onSubmit={this.getLatitudeLongitude}>
-				<Form.Group as={Row}>		
-					<label htmlFor="InputLocation">Search:</label>
-					<Col sm="6">
-						<input type="text" className="form-control" id="InputLocation" 
-							aria-describedby="locationlookup" placeholder="location"
-							value={this.state.location} onChange={this.handleChange}/>					
-					</Col>
-					<Col >
-						<Button className='button' type="submit">Lookup</Button>
-					</Col>
-				</Form.Group>
-			</Form>
+		    <div className='container '>
+				<form onSubmit={this.getLatitudeLongitude}>	
+					<div className='form-group row'>
+						<div className='col-md-1 mr-4'>
+							<label htmlFor="InputLocation">Search: </label>
+						</div>
+						<div className='col-md-7'>	 
+							<input type="text" className="form-control form-control-lg mb-2" id="InputLocation" 
+								aria-describedby="locationlookup" placeholder="Enter city or zipcode" autoComplete="off"
+								value={this.state.location} onChange={this.handleChange}/>
+						</div>
+						<div className='col-md-3'>
+							<button className='button btn-lg text-white' type="submit">Lookup</button>
+						</div>
+					</div>
+					
+				</form>
+			</div>
 		)
 	}
 }

@@ -1,0 +1,7 @@
+.home-section {
+	background: url('https://images.unsplash.com/photo-1547401642-3f55965c566f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60');
+	background-repeat: no-repeat;
+	background-size:  cover;
+	background-attachment:  fixed;
+	background-position: center; 
+}

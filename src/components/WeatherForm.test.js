@@ -1,8 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow , mount} from 'enzyme'
 import WeatherForm from './WeatherForm'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 
 describe('WeatherForm Component', () => {
 	let props = '1'
@@ -43,7 +41,7 @@ describe('WeatherForm Component', () => {
 	it ('renders a Form element', () => {
 		const wrapper = shallow(<WeatherForm />)
 
-		expect(wrapper.find(Form).length).toBe(1)
+		expect(wrapper.find('form').length).toBe(1)
 	})
 
 	it ('initializes the form with an empty location value', () => {
@@ -69,8 +67,17 @@ describe('WeatherForm Component', () => {
 		const spy= jest.spyOn(wrapper.instance(), 'getLatitudeLongitude')
 		
 		wrapper.instance().forceUpdate();
-		wrapper.find(Form).simulate('submit', { preventDefault() {} })
+		wrapper.find('form').simulate('submit', { preventDefault() {} })
 
 		expect(spy).toHaveBeenCalled()
+	})
+
+	it ('calls getGeocode on ComponentDidMount', () => {
+		const newProps = {...props, getGeocode: () => {}}
+		
+		const spy= jest.spyOn(WeatherForm.prototype, 'componentDidMount')
+		const wrapper = mount(<WeatherForm {...newProps}/>)
+
+		expect(spy).toHaveBeenCalledTimes(1)
 	})
 })

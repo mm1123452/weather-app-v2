@@ -41,6 +41,12 @@ describe('App Component', () => {
 			}
 	})
 
+	it ('renders h1 with text', () => {
+        let newProps = {...props}
+		const wrapper = shallow(<App {...newProps}/>)
+
+		expect(wrapper.find('h1').text()).toBe('Fantastic Weather App')
+	})
 
 	it ('renders CurrentWeatherContainer', () => {
         let newProps = {...props}
