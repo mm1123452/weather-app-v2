@@ -1,6 +1,5 @@
 {
   "name": "weather-app-v2",
-  "homepage": "http://MabelM1.github.io/weather-app-v2",
   "jest": {
     "collectCoverageFrom": [
       "src/*.js",
@@ -13,7 +12,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
@@ -22,8 +20,6 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
