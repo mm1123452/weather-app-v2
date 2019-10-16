@@ -1,5 +1,9 @@
 # weather-app
 
+Working Demo: https://weather-app-new-2.herokuapp.com
+
+![alt text](https://i.imgur.com/kHwKmzf.png "Weather app")
+
 
 ## Prerequisites:
 
