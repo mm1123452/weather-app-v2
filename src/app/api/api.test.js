@@ -8,7 +8,7 @@ describe('getGeocode', () => {
         axios.get.mockReturnValue(Promise.resolve({}));
     })
 
-	it('calls getGeocode from api ', () => {
+	xit('calls getGeocode from api ', () => {
 		const location='10026'
 		getGeocode(location)
 		expect(axios.get).toHaveBeenCalled()
@@ -20,7 +20,7 @@ describe('getFourDayForecast ', () => {
         axios.get.mockReturnValue(Promise.resolve({}));
     })
 
-	it('calls getFourDayForecast from api ', () => {
+	xit('calls getFourDayForecast from api ', () => {
 		const lat=20
 		const long=25
 		getFourDayForecast(lat,long)
@@ -33,7 +33,7 @@ describe('getCurrentWeather ', () => {
         axios.get.mockReturnValue(Promise.resolve({}));
     })
 
-	it('calls  getCurrentWeather from api ', () => {
+	xit('calls  getCurrentWeather from api ', () => {
 		const lat=20
 		const long=25
 		getCurrentWeather(lat,long)
@@ -41,7 +41,7 @@ describe('getCurrentWeather ', () => {
 	})
 })
 
-describe('getWeather', () => {
+xdescribe('getWeather', () => {
 	 beforeEach(() => {
         axios.all.mockReturnValue(Promise.resolve({}))
         axios.spread.mockReturnValue(Promise.resolve({}))

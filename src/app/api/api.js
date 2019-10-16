@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { googleApi, openweathermap } from './config'
+import { googleApi, openweathermap } from '../config'
 
 const API_BASE_URL_GOOGLE = 'https://maps.googleapis.com/maps/api/geocode/json?'
 const GOOGLE_API_KEY = googleApi.key

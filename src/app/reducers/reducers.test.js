@@ -2,7 +2,7 @@ import {forecastReducer} from './reducers'
 import { LATITUDE_LONGITUDE_FETCH, LATITUDE_LONGITUDE_FETCH_SUCCESS,
  LATITUDE_LONGITUDE_FETCH_FAILURE, WEATHER_FETCH,
  CURRENT_WEATHER_FETCH_SUCCESS, CURRENT_WEATHER_FETCH_FAILURE,
- FOUR_DAY_WEATHER_FETCH_SUCCESS, FOUR_DAY_WEATHER_FETCH_FAILURE} from './constants'
+ FOUR_DAY_WEATHER_FETCH_SUCCESS, FOUR_DAY_WEATHER_FETCH_FAILURE} from '../constants'
 
 describe('forecast Reducer', () => {
 	let initialState
@@ -58,7 +58,7 @@ describe('forecast Reducer', () => {
 	})
 
 	it('should handle LATITUDE_LONGITUDE_FETCH_SUCCESS', () => {
-		const response = {data: {results: [{formatted_address: 'New York NY 10026'}]}}
+		const response = {results: [{formatted_address: 'New York NY 10026'}]}
 		const action = {type: LATITUDE_LONGITUDE_FETCH_SUCCESS, response}
 		const expectedState = { ...initialState,
 		items: {

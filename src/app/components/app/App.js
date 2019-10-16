@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import DayForecastList from './components/DayForecastList'
-import WeatherFormContainer from './containers/WeatherFormContainer'
-import CurrentWeatherContainer from './containers/CurrentWeatherContainer'
+import DayForecastList from '../dayForecast/DayForecastList'
+import WeatherFormContainer from '../../../app/containers/weatherForm/WeatherFormContainer'
+import CurrentWeatherContainer from '../../../app/containers/currentWeather/CurrentWeatherContainer'
 import './App.css'
 
 class App extends Component {

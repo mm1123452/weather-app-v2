@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'   
-import CurrentWeather from '../components/CurrentWeather'
+import CurrentWeather from '../../components/currentWeather/CurrentWeather'
 
 const mapStateToProps = (state) => {                  
   return {

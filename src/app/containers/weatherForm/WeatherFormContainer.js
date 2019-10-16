@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import WeatherForm from '../components/WeatherForm'
-import {fetchGeocode} from '../actions'
+import WeatherForm from '../../components/weatherForm/WeatherForm'
+import {fetchGeocode} from '../../actions/actions'
 
 export const getGeocode = (dispatch, location) => {
 	dispatch(fetchGeocode(location))

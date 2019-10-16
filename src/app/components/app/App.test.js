@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 import App from './App'
-import WeatherFormContainer from './containers/WeatherFormContainer'
-import DayForecastList from './components/DayForecastList'
-import CurrentWeatherContainer from './containers/CurrentWeatherContainer'
+import WeatherFormContainer from '../../../app/containers/weatherForm/WeatherFormContainer'
+import DayForecastList from '../dayForecast/DayForecastList'
+import CurrentWeatherContainer from '../../../app/containers/currentWeather/CurrentWeatherContainer'
 
 describe('App Component', () => {
 	let props = '1'

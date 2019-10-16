@@ -1,5 +1,5 @@
 import * as Container from './WeatherFormContainer'
-import * as AppActions from '../actions'
+import * as AppActions from '../../actions/actions'
  
 describe('WeatherFormContainer', () => {
   it('should dispatch getLatitudeLongitude', () => {

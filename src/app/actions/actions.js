@@ -2,11 +2,11 @@ import { LATITUDE_LONGITUDE_FETCH, LATITUDE_LONGITUDE_FETCH_SUCCESS,
  LATITUDE_LONGITUDE_FETCH_FAILURE, WEATHER_FETCH,
  CURRENT_WEATHER_FETCH_SUCCESS, CURRENT_WEATHER_FETCH_FAILURE,
  FOUR_DAY_WEATHER_FETCH_SUCCESS, FOUR_DAY_WEATHER_FETCH_FAILURE
- } from './constants'
+ } from '../constants'
 
-import * as api from './api'
+import * as api from '../api/api'
 
-import {hourlyToDailyForecast} from './Util'
+import {hourlyToDailyForecast} from '../utilities/Util'
 
 export const getLatitudeLongitude = (payload) => {         
   return {
