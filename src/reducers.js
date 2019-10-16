@@ -51,8 +51,8 @@ export const forecastReducer = (state = initialState, action) => {
   		}
   	}
  	case LATITUDE_LONGITUDE_FETCH_SUCCESS: {
- 		const validLocation= (action.response.data.results.length > 0) ? true : false
- 		const newLocation = validLocation ? action.response.data.results[0].formatted_address : state.items.location
+ 		const validLocation= (action.response.results.length > 0) ? true : false
+ 		const newLocation = validLocation ? action.response.results[0].formatted_address : state.items.location
 
   		return {
   			...state,

@@ -31,7 +31,7 @@ export const getLatitudeLongitudeFailure = (error, payload) => {
   }
 }
 
-export const getWeather = (payload) => {       
+export const getWeather = (payload) => {     
   return {
     type: WEATHER_FETCH,
     payload
@@ -70,41 +70,33 @@ export const getFourDayWeatherFailure = (error, payload) => {
   }
 }
 
-export const fetchGeocode = location => {
-  return dispatch => {
-    dispatch(getLatitudeLongitude(location))
-    return api.getGeocode(location)
-    .then(resp => {
-      if(resp.data && resp.data.error_message) {
-          dispatch(getLatitudeLongitudeFailure(resp.data.error_message, location))
-      } else {
-        dispatch(getLatitudeLongitudeSuccess(resp, location))
-        dispatch(fetchWeather(resp.data.results[0].geometry.location.lat, resp.data.results[0].geometry.location.lng))
-      }
-    })
-    .catch(err => dispatch(getLatitudeLongitudeFailure(err, location)))
+export const fetchGeocode  = location => { 
+  return async dispatch => {
+    try {
+      dispatch(getLatitudeLongitude(location))
+      const response = await api.getGeocode(location)  
+      dispatch(getLatitudeLongitudeSuccess(response, location))
+      await dispatch(fetchWeather(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng))     
+    }
+    catch(error) {
+      dispatch(getLatitudeLongitudeFailure(error, location))
+    }
   }
 }
 
 export const fetchWeather = (lat,long) => {
-  return dispatch => {
-    dispatch(getWeather({lat: lat, long: long}))
-    return api.getWeather(lat,long)
-    .then(resp => {
-        if(resp.current && resp.current.error) {
-          dispatch(getCurrentWeatherFailure(resp.current.error,{lat: lat, long: long}))
-        } else if (resp.current) {
-          dispatch(getCurrentWeatherSuccess(resp.current, {lat: lat, long: long}))
-        } 
+  return async dispatch => {
+    try {
+      dispatch(getWeather({lat, long}))
+      const response = await api.getWeather(lat,long)
+      dispatch(getCurrentWeatherSuccess(response.current, {lat: lat, long: long}))
+      const fourDayarray = hourlyToDailyForecast(response.fourday.list)
+       dispatch(getFourDayWeatherSuccess(fourDayarray, {lat: lat, long: long}))
 
-        if(resp.fourday && resp.fourday.error)  {
-          dispatch(getFourDayWeatherFailure(resp.fourday.error, {lat: lat, long: long}))
-        } else if (resp.fourday) {
-          const fourDayarray = hourlyToDailyForecast(resp.fourday.list)
-          dispatch(getFourDayWeatherSuccess(fourDayarray, {lat: lat, long: long}))
-        }
-      })
-      .catch(err => err)
-   }
+    } catch (error) {
+       dispatch(getFourDayWeatherFailure(error, {lat: lat, long: long}))
+       dispatch(getCurrentWeatherFailure(error,{lat: lat, long: long}))
+       
+    }
+  }
 }
-
