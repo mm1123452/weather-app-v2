@@ -1,6 +1,6 @@
 # weather-app
 
-Working Demo: https://weather-app-new-2.herokuapp.com
+Working Demo: https://mabelm1.github.io/weather-app-v2/
 
 ![alt text](https://i.imgur.com/kHwKmzf.png "Weather app")
 
